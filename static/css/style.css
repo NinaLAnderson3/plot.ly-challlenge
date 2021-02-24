@@ -1,0 +1,12 @@
+h1{
+   
+    background-image: url("/../images/germs.jpg");
+    background-size: cover;
+    background-color:palevioletred;
+    background-repeat: no-repeat;
+    color:chartreuse;
+    padding:120px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height:40px;
+}
