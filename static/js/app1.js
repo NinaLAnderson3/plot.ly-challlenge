@@ -1,4 +1,5 @@
-function init() {
+//create function to get data
+function getData() {
   // select dropdown menu 
   var dropdown = d3.select("#selDataset");
 
@@ -13,13 +14,13 @@ function init() {
 
       // call the functions to display the data and the plots to the page
   //     getPlot(data.names[0]);
-      getInfo(data.names[0]);
+      Metadata(data.names[0]);
   });
 }
 
-init();
+getData();
 
-function getInfo(id) {
+function Metadata(id) {
   // read the json file to get data
   d3.json("samples.json").then((data)=> {
       
