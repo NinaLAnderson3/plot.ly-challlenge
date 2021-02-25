@@ -1,26 +1,5 @@
-//create function to get data
-function getData() {
-  // select dropdown menu 
-  var dropdown = d3.select("#selDataset");
-
-  // read the data 
-  d3.json("samples.json").then((data)=> {
-      console.log(data)
-
-      // get the id data to the dropdwown menu
-      data.names.forEach(function(name) {
-          dropdown.append("option").text(name).property("value");
-      });
-
-      // call the functions to display the data and the plots to the page
-  //     getPlot(data.names[0]);
-      Metadata(data.names[0]);
-  });
-}
-
-getData();
-
-function Metadata(id) {
+// create the function to get the necessary data
+function getInfo(id) {
   // read the json file to get data
   d3.json("samples.json").then((data)=> {
       
@@ -44,9 +23,32 @@ function Metadata(id) {
       });
   });
 }
+getInfo()
 
 // create the function for the change event
 function optionChanged(id) {
-  // getPlot(id);
-  getInfo(id);
+
+  getInfo();
 }
+
+// create the function for the initial data rendering
+function init() {
+  // select dropdown menu 
+  var dropdown = d3.select("#selDataset");
+
+  // read the data 
+  d3.json("samples.json").then((data)=> {
+      console.log(data)
+
+      // get the id data to the dropdwown menu
+      data.names.forEach(function(name) {
+          dropdown.append("option").text(name).property("value");
+      });
+
+      getInfo(data.names[0]);
+  });
+}
+
+init();
+
+optionChanged()
