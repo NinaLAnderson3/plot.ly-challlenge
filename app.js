@@ -87,9 +87,27 @@ function getPlotData(id){
             }
         };
         Plotly.newPlot("bar", data1, layout);
+
+        var trace1 = {
+            x: samples.otu_ids,
+            y: samples.sample_values,
+            mode: "markers",
+            marker: {
+                size: samples.sample_values,
+                color: samples.otu_ids
+            }
+        };
+        var layout2 = {
+            xaxis:{title: "OTU ID"},
+            height: 500,
+            width: 1200
+        };
+
+        var data1 = [trace1];
+    
+        Plotly.newPlot("bubble", data1, layout2)
+
     });
     
 }
 getPlotData();
-
-
